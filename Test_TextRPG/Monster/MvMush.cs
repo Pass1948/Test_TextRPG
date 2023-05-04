@@ -35,7 +35,7 @@ namespace Test_TextRPG
         {
 
             
-
+            //
             do
             {
                 int x = random.Next(0, 5);
