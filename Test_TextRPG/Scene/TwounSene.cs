@@ -83,8 +83,6 @@ namespace Project_TextRPG
                 return;
             }
 
-
-
             // 상점이용 구현
 
         }
