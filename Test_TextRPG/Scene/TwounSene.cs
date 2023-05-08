@@ -109,9 +109,16 @@ namespace Project_TextRPG
 
             foreach (Potal potal in Data.potals)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.SetCursorPosition(potal.pos.x * 2, potal.pos.y);
                 Console.Write(potal.icon);
+            }
+
+            foreach (NPC npc in Data.npcs)
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.SetCursorPosition(npc.pos.x * 2, npc.pos.y);
+                Console.Write(npc.icon);
             }
 
             Console.ForegroundColor = ConsoleColor.Red;

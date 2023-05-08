@@ -26,7 +26,6 @@ namespace Project_TextRPG
                 Render();
                 Update();
             }
-
             Release();
         }
 

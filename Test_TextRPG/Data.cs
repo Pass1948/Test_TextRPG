@@ -11,6 +11,7 @@ namespace Project_TextRPG
     {
         public static bool[,] map;
         public static Player player;
+        public static List<NPC> npcs;
         public static List<Item> inventory;
         public static List<Monster> monsters;
         public static List<Item> items;
@@ -19,10 +20,12 @@ namespace Project_TextRPG
         public static void Init()
         {
             player = new Player();
+
             inventory = new List<Item>();
             monsters = new List<Monster>();
             items = new List<Item>();
             potals = new List<Potal>();
+            npcs = new List<NPC>();
 
             inventory.Add(new Potion());
             inventory.Add(new LargePotion());
@@ -135,11 +138,19 @@ namespace Project_TextRPG
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true, false,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false },
            };
 
             player.pos = new Position(2, 2);
+
+            NPC npc = new NPC();
+            npc.pos = new Position(4, 1);
+            npcs.Add(npc);
+
+            NPC npc2 = new NPC();
+            npc2.pos = new Position(8, 1);
+            npcs.Add(npc2);
 
             Potal potal = new Potal();
             potal.pos = new Position(12, 2);

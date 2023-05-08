@@ -11,8 +11,6 @@ namespace Project_TextRPG
 {
     public class Player
     {
-        
-
         public string image;
         public char icon = '♥';
         public Position pos;

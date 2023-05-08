@@ -149,7 +149,7 @@ namespace Project_TextRPG
 
             foreach (Potal potal in Data.potals)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.SetCursorPosition(potal.pos.x * 2, potal.pos.y);
                 Console.Write(potal.icon);
             }
