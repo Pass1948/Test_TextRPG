@@ -12,7 +12,7 @@ namespace Project_TextRPG
 
         private Scene scene;
         private MainMenuScene mainMenu;
-        private MapScene mapScene;
+        private DonjonScene donjonScene;
         private InventoryScene inventoryScene;
         private BattleScene battleScene;
 
@@ -33,9 +33,9 @@ namespace Project_TextRPG
         {
             Console.CursorVisible = false;
 
-            Data.Init();
+            Data_Don.Init();
             mainMenu = new MainMenuScene(this);
-            mapScene = new MapScene(this);
+            donjonScene = new DonjonScene(this);
             inventoryScene = new InventoryScene(this);
             battleScene = new BattleScene(this);
 
@@ -63,9 +63,9 @@ namespace Project_TextRPG
             scene = mainMenu;
         }
 
-        public void Map()
+        public void Donjon()
         {
-            scene = mapScene;
+            scene = donjonScene;
         }
 
         public void Battle(Monster monster)
@@ -81,8 +81,8 @@ namespace Project_TextRPG
 
         public void GameStart()
         {
-            scene = mapScene;
-            mapScene.GenerateMap();
+            scene = donjonScene;
+            donjonScene.GenerateMap();
         }
 
         public void GameOver(string text = "")

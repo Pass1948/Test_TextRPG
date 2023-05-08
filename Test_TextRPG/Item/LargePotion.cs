@@ -22,8 +22,8 @@ namespace Project_TextRPG
         {
             Console.WriteLine($"대형포션을 사용하여 플레이어의 체력을 {point} 회복시킵니다.");
             Thread.Sleep(1000);
-            Data.player.Heal(point);
-            Console.WriteLine($"플레이어의 체력이 {Data.player.CurHp}이 되었습니다.");
+            Data_Don.player.Heal(point);
+            Console.WriteLine($"플레이어의 체력이 {Data_Don.player.CurHp}이 되었습니다.");
             Thread.Sleep(1000);
         }
     }

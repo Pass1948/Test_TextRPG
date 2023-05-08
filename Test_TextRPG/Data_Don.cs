@@ -7,7 +7,7 @@ using Test_TextRPG;
 
 namespace Project_TextRPG
 {
-    public static class Data
+    public static class Data_Don
     {
         public static bool[,] map;
         public static Player player;

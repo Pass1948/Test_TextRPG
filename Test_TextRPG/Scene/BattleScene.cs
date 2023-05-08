@@ -21,17 +21,17 @@ namespace Project_TextRPG
             Console.WriteLine();
             Console.WriteLine(monster.image);
             Console.WriteLine();
-            Console.WriteLine(Data.player.image);
+            Console.WriteLine(Data_Don.player.image);
             Console.WriteLine();
-            Console.WriteLine($"플레이어    {Data.player.CurHp,3}/{Data.player.MaxHp}");
+            Console.WriteLine($"플레이어    {Data_Don.player.CurHp,3}/{Data_Don.player.MaxHp}");
             Console.WriteLine();
         }
 
         public override void Update()
         {
-            for (int i = 0; i < Data.player.skills.Count; i++)
+            for (int i = 0; i < Data_Don.player.skills.Count; i++)
             {
-                Console.Write($"{i + 1,2}. {Data.player.skills[i].name} ");
+                Console.Write($"{i + 1,2}. {Data_Don.player.skills[i].name} ");
             }
             Console.WriteLine();
             Console.Write("명령을 입력하세요 : ");
@@ -44,13 +44,13 @@ namespace Project_TextRPG
                 Console.WriteLine("잘못 입력하셨습니다.");
                 return;
             }
-            if (index < 1 || index > Data.player.skills.Count)
+            if (index < 1 || index > Data_Don.player.skills.Count)
             {
                 Console.WriteLine("잘못 입력하셨습니다.");
                 return;
             }
 
-            Data.player.skills[index-1].action(monster);
+            Data_Don.player.skills[index-1].action(monster);
 
             // 턴 결과
             if (monster.curHp <= 0)
@@ -60,10 +60,10 @@ namespace Project_TextRPG
             }
 
             // 몬스터 턴
-            monster.Attack(Data.player);
+            monster.Attack(Data_Don.player);
 
             // 턴 결과
-            if (Data.player.CurHp <= 0)
+            if (Data_Don.player.CurHp <= 0)
             {
                 game.GameOver("몬스터에게 패배했습니다.");
                 return;
@@ -73,7 +73,7 @@ namespace Project_TextRPG
         public void StartBattle(Monster monster)
         {
             this.monster = monster;
-            Data.monsters.Remove(monster);
+            Data_Don.monsters.Remove(monster);
 
             Console.Clear();
             Console.WriteLine($"{monster.name}(와/과) 전투 시작!");

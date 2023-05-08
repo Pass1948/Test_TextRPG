@@ -69,7 +69,7 @@ namespace Project_TextRPG
             }
 
             // 이동한 자리가 벽일 경우
-            if (!Data.map[pos.y, pos.x])
+            if (!Data_Don.map[pos.y, pos.x])
             {
                 // 원위치 시키기
                 pos = prevPos;
@@ -78,12 +78,12 @@ namespace Project_TextRPG
 
         public void GetItem(Item item)
         {
-            Data.inventory.Add(item);
+            Data_Don.inventory.Add(item);
         }
 
         public void UseItem(Item item)
         {
-            Data.inventory.Remove(item);
+            Data_Don.inventory.Remove(item);
             item.Use();
         }
 

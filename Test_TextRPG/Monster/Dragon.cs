@@ -38,7 +38,7 @@ namespace Project_TextRPG
             moveTurn = 0;
 
             List<Position> path;
-            if (!PathFinding(in Data.map, pos, Data.player.pos, out path))
+            if (!PathFinding(in Data_Don.map, pos, Data_Don.player.pos, out path))
                 return;
             
             if (path[1].x == pos.x)
@@ -73,10 +73,10 @@ namespace Project_TextRPG
 			(  0, -1 ),			// 하
 			( -1,  0 ),			// 좌
 			( +1,  0 ),			// 우
-			// ( -1, +1 ),		// 좌상
-			// ( -1, -1 ),		// 좌하
-			// ( +1, +1 ),		// 우상
-			// ( +1, -1 )		// 우하
+			( -1, +1 ),		    // 좌상
+			( -1, -1 ),		    // 좌하
+			( +1, +1 ),		    // 우상
+			( +1, -1 )		    // 우하
 		};
 
         public bool PathFinding(in bool[,] tileMap, in Position start, in Position end, out List<Position> path)

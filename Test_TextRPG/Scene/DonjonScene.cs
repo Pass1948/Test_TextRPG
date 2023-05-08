@@ -11,9 +11,9 @@ namespace Project_TextRPG
     // 던전맵과 마을맵 분리 구현(목표)
     // 상점, 대장간 등 이용시설 구현 (목표)
     // 
-    public class MapScene : Scene
+    public class DonjonScene : Scene
     {
-        public MapScene(Game game) : base(game)
+        public DonjonScene(Game game) : base(game)
         {
         }
 
@@ -23,7 +23,7 @@ namespace Project_TextRPG
             PrintMenu();
             PrintInfo();
 
-            Console.SetCursorPosition(0, Data.map.GetLength(0) + 1);
+            Console.SetCursorPosition(0, Data_Don.map.GetLength(0) + 1);
         }
 
         public override void Update()
@@ -61,29 +61,29 @@ namespace Project_TextRPG
             switch (input.Key)
             {
                 case ConsoleKey.UpArrow:
-                    Data.player.TryMove(Direction.Up);
+                    Data_Don.player.TryMove(Direction.Up);
                     break;
                 case ConsoleKey.DownArrow:
-                    Data.player.TryMove(Direction.Down);
+                    Data_Don.player.TryMove(Direction.Down);
                     break;
                 case ConsoleKey.LeftArrow:
-                    Data.player.TryMove(Direction.Left);
+                    Data_Don.player.TryMove(Direction.Left);
                     break;
                 case ConsoleKey.RightArrow:
-                    Data.player.TryMove(Direction.Right);
+                    Data_Don.player.TryMove(Direction.Right);
                     break;
             }
 
             // 아이템 습득
-            Item item = Data.ItemInPos(Data.player.pos);
+            Item item = Data_Don.ItemInPos(Data_Don.player.pos);
             if (item != null)
             {
-                Data.player.GetItem(item);
-                Data.items.Remove(item);
+                Data_Don.player.GetItem(item);
+                Data_Don.items.Remove(item);
             }
 
             // 몬스터 전투
-            Monster monster = Data.MonsterInPos(Data.player.pos);
+            Monster monster = Data_Don.MonsterInPos(Data_Don.player.pos);
             if (monster != null)
             {
                 game.Battle(monster);
@@ -91,11 +91,11 @@ namespace Project_TextRPG
             }
 
             // 몬스터 이동
-            foreach (Monster m in Data.monsters)
+            foreach (Monster m in Data_Don.monsters)
             {
                 m.MoveAction();
-                if (m.pos.x == Data.player.pos.x &&
-                    m.pos.y == Data.player.pos.y)
+                if (m.pos.x == Data_Don.player.pos.x &&
+                    m.pos.y == Data_Don.player.pos.y)
                 {
                     game.Battle(m);
                     return;
@@ -105,18 +105,18 @@ namespace Project_TextRPG
 
         public void GenerateMap()
         {
-            Data.LoadLevel1();
+            Data_Don.LoadLevel1();
         }
 
         private void PrintMap()
         {
             StringBuilder sb = new StringBuilder();
             Console.ForegroundColor = ConsoleColor.White;
-            for (int y = 0; y < Data.map.GetLength(0); y++)
+            for (int y = 0; y < Data_Don.map.GetLength(0); y++)
             {
-                for (int x = 0; x < Data.map.GetLength(1); x++)
+                for (int x = 0; x < Data_Don.map.GetLength(1); x++)
                 {
-                    if (Data.map[y, x])
+                    if (Data_Don.map[y, x])
                         sb.Append('　');
                     else
                         sb.Append('▩');
@@ -125,14 +125,14 @@ namespace Project_TextRPG
             }
             Console.WriteLine(sb.ToString());
 
-            foreach (Monster monster in  Data.monsters)
+            foreach (Monster monster in  Data_Don.monsters)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.SetCursorPosition(monster.pos.x*2, monster.pos.y);
                 Console.Write(monster.icon);
             }
 
-            foreach (Item item in Data.items)
+            foreach (Item item in Data_Don.items)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.SetCursorPosition(item.pos.x * 2, item.pos.y);
@@ -140,27 +140,27 @@ namespace Project_TextRPG
             }
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(Data.player.pos.x * 2, Data.player.pos.y);
-            Console.Write(Data.player.icon);
+            Console.SetCursorPosition(Data_Don.player.pos.x * 2, Data_Don.player.pos.y);
+            Console.Write(Data_Don.player.icon);
         }
 
         private void PrintMenu()
         {
             Console.ForegroundColor = ConsoleColor.White;
             (int left, int top) pos = Console.GetCursorPosition();
-            Console.SetCursorPosition(Data.map.GetLength(1)*2 + 3, 1);
+            Console.SetCursorPosition(Data_Don.map.GetLength(1)*2 + 3, 1);
             Console.Write("메뉴 : Q");
-            Console.SetCursorPosition(Data.map.GetLength(1) * 2 + 3, 3);
+            Console.SetCursorPosition(Data_Don.map.GetLength(1) * 2 + 3, 3);
             Console.Write("이동 : 방향키");
-            Console.SetCursorPosition(Data.map.GetLength(1) * 2 + 3, 4);
+            Console.SetCursorPosition(Data_Don.map.GetLength(1) * 2 + 3, 4);
             Console.Write("인벤토리 : I");
         }
 
         private void PrintInfo()
         {
-            Console.SetCursorPosition(0, Data.map.GetLength(0) + 1);
-            Console.Write($"HP : {Data.player.CurHp,3}/{Data.player.MaxHp,3}\t");
-            Console.Write($"EXP : {Data.player.CurExp,3}/{Data.player.MaxExp,3}");
+            Console.SetCursorPosition(0, Data_Don.map.GetLength(0) + 1);
+            Console.Write($"HP : {Data_Don.player.CurHp,3}/{Data_Don.player.MaxHp,3}\t");
+            Console.Write($"EXP : {Data_Don.player.CurExp,3}/{Data_Don.player.MaxExp,3}");
         }
     }
 }
