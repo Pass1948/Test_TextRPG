@@ -10,7 +10,6 @@ namespace Project_TextRPG
     {
         private Random random = new Random();
         private int moveTurn = 0;
-
         public Dragon()
         {
             name = "드래곤";
@@ -18,6 +17,7 @@ namespace Project_TextRPG
             maxHp = 100;
             ap = 15;
             dp = 10;
+            icon = '※';
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("####################");

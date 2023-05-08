@@ -1,15 +1,9 @@
 ﻿using Project_TextRPG;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Test_TextRPG
 {
-    
+
     public class MvMush : Monster
     {
         public MvMush()
@@ -19,6 +13,7 @@ namespace Test_TextRPG
             maxHp = 5;
             ap = 0;
             dp = 5;
+            icon = '▲';
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("####################");
@@ -30,75 +25,40 @@ namespace Test_TextRPG
             image = sb.ToString();
         }
 
-
-        
         public Random random = new Random();
         private int moveTurn = 0;
+
         public override void MoveAction()
         {
+            int randx = random.Next(1, 6);
+            int randy = random.Next(10, 15);
             switch (moveTurn++)
             {
                 case 1:
                     TryMove2();
+                    pos = new Position(randx, randy);
                     break;
-                case 3:
+                case 4:
                     TryMove2();
+                    pos = new Position(randx, randy);
                     break;
             }
-            if (moveTurn == 4)
+            if (moveTurn == 5)
             {
                 moveTurn = 0;
             }
         }
         protected void TryMove2()
         {
-            int rand = random.Next(0, 8);
             Position prevPos = pos;
-            while (true)
+           
+            if (!Data_Don.map[pos.y, pos.x])
             {
-                switch (rand)
-                {
-                    case 0:         // 위
-                        pos.y--;
-                        break;
-                    case 1:         // 아래
-                        pos.y++;
-                        break;
-                    case 2:         // 왼쪽
-                        pos.x--;
-                        break;
-                    case 3:         // 오른쪽
-                        pos.x++;
-                        break;
-                    case 4:         // 왼쪽 위 대각
-                        pos.y--;
-                        pos.x--;
-                        break;
-                    case 5:         // 오른쪽 위 대각
-                        pos.y--;
-                        pos.x++;
-                        break;
-                    case 6:         // 왼쪽 아래 대각
-                        pos.y++;
-                        pos.x--;
-                        break;
-                    case 7:
-                        pos.y++;    // 오른쪽 아래 대각
-                        pos.x++;
-                        break;
-                }
-                if (Data_Don.map[pos.y, pos.x])
-                {
-                    break;
-                }
-                else if (!Data_Don.IsObjectInPos(pos))
-                {
-                    break;
-                }
-                else
-                {
-                    pos = prevPos;
-                }
+                pos = prevPos;
+            }
+            else if (Data_Don.IsObjectInPos(pos))
+            {
+                pos = prevPos;
             }
         }
     }

@@ -55,7 +55,7 @@ namespace Project_TextRPG
             // 턴 결과
             if (monster.curHp <= 0)
             {
-                game.Map();
+                game.Donjon();
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace Project_TextRPG
             Console.WriteLine("전투에서 승리했다!");
 
             Thread.Sleep(2000);
-            game.Map();
+            game.Donjon();
         }
     }
 }

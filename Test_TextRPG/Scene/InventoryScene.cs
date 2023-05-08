@@ -47,7 +47,7 @@ namespace Project_TextRPG
             switch (index)
             {
                 case 0:
-                    game.Map();
+                    game.Donjon();
                     break;
                 case 1:
                     UseItem();

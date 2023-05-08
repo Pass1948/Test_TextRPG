@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_TextRPG.Class
+namespace Project_TextRPG
 {
-    internal class Warrior
+    internal class NPC
     {
     }
 }

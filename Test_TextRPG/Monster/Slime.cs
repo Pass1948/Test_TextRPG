@@ -18,6 +18,7 @@ namespace Project_TextRPG
             maxHp = 10;
             ap = 3;
             dp = 0;
+            icon = '§';
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("                       .B               ");

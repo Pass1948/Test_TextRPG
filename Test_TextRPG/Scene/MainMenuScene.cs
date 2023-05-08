@@ -38,7 +38,7 @@ namespace Project_TextRPG
             switch (index)
             {
                 case 1:
-                    game.GameStart();
+                    game.ClassChose();
                     break;
                 case 2:
                     game.GameOver("게임을 종료했습니다.");

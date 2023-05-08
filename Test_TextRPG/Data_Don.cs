@@ -101,7 +101,7 @@ namespace Project_TextRPG
             monsters.Add(dragon);
 
             MvMush mvMush = new MvMush();
-            mvMush.pos = new Position(12, 2);
+            mvMush.pos = new Position(3, 12);
             monsters.Add(mvMush);
 
             Item potion = new Potion();

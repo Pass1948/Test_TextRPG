@@ -15,7 +15,7 @@ namespace Project_TextRPG
         private DonjonScene donjonScene;
         private InventoryScene inventoryScene;
         private BattleScene battleScene;
-
+        private ClassChoesScene classChoesScene;
         public void Run()
         {
             Init();
@@ -38,6 +38,7 @@ namespace Project_TextRPG
             donjonScene = new DonjonScene(this);
             inventoryScene = new InventoryScene(this);
             battleScene = new BattleScene(this);
+            classChoesScene = new ClassChoesScene(this);
 
             scene = mainMenu;
         }
@@ -61,6 +62,11 @@ namespace Project_TextRPG
         public void MainMenu()
         {
             scene = mainMenu;
+        }
+
+        public void ClassChose()
+        {
+            scene = classChoesScene;
         }
 
         public void Donjon()
@@ -106,5 +112,7 @@ namespace Project_TextRPG
 
             running = false;
         }
+
+
     }
 }

@@ -10,17 +10,6 @@ namespace Project_TextRPG
 {
     public class Warp
     {
-        private DonjonScene donjonScene;
-        private void Init()
-        {
-
-            Data_Don.Init();
-            donjonScene = new DonjonScene(this);
-            
-        }
-        public void Donjon()
-        {
-            scene = donjonScene;
-        }
+       
     }
 }
