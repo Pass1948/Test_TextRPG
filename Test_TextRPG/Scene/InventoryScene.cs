@@ -17,12 +17,12 @@ namespace Project_TextRPG
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<인벤토리>");
             sb.AppendLine($"\t이름\t무게\t설명");
-            for (int i = 0; i < Data_Don.inventory.Count; i++)
+            for (int i = 0; i < Data.inventory.Count; i++)
             {
                 sb.Append($"{i,3}");
-                sb.Append($"\t{Data_Don.inventory[i].name}");
-                sb.Append($"\t{Data_Don.inventory[i].weight}");
-                sb.Append($"\t{Data_Don.inventory[i].description}");
+                sb.Append($"\t{Data.inventory[i].name}");
+                sb.Append($"\t{Data.inventory[i].weight}");
+                sb.Append($"\t{Data.inventory[i].description}");
                 sb.AppendLine();
             }
             sb.AppendLine();
@@ -77,13 +77,13 @@ namespace Project_TextRPG
                 return;
             }
 
-            if (index >= Data_Don.inventory.Count)
+            if (index >= Data.inventory.Count)
             {
                 Console.WriteLine("잘못 입력하셨습니다.");
                 return;
             }
 
-            Data_Don.inventory[index].Use();
+            Data.inventory[index].Use();
         }
 
         private void SortItem()
@@ -105,10 +105,10 @@ namespace Project_TextRPG
             switch (index)
             {
                 case 1:
-                    Data_Don.inventory.Sort(Comparer<Item>.Create((a, b) => a.name.CompareTo(b.name)));
+                    Data.inventory.Sort(Comparer<Item>.Create((a, b) => a.name.CompareTo(b.name)));
                     break;
                 case 2:
-                    Data_Don.inventory.Sort(Comparer<Item>.Create((a, b) => a.weight - b.weight));
+                    Data.inventory.Sort(Comparer<Item>.Create((a, b) => a.weight - b.weight));
                     break;
                 default:
                     Console.WriteLine("잘못 입력 하셨습니다.");

@@ -16,6 +16,7 @@ namespace Project_TextRPG
         private InventoryScene inventoryScene;
         private BattleScene battleScene;
         private ClassChoesScene classChoesScene;
+        private TwounSene twounSene;
         public void Run()
         {
             Init();
@@ -33,12 +34,13 @@ namespace Project_TextRPG
         {
             Console.CursorVisible = false;
 
-            Data_Don.Init();
+            Data.Init();
             mainMenu = new MainMenuScene(this);
             donjonScene = new DonjonScene(this);
             inventoryScene = new InventoryScene(this);
             battleScene = new BattleScene(this);
             classChoesScene = new ClassChoesScene(this);
+            twounSene = new TwounSene(this);
 
             scene = mainMenu;
         }
@@ -72,6 +74,12 @@ namespace Project_TextRPG
         public void Donjon()
         {
             scene = donjonScene;
+            donjonScene.GenerateMap();
+        }
+        public void Twoun()
+        {
+            scene = twounSene;
+            twounSene.GenerateMap();
         }
 
         public void Battle(Monster monster)
@@ -87,8 +95,7 @@ namespace Project_TextRPG
 
         public void GameStart()
         {
-            scene = donjonScene;
-            donjonScene.GenerateMap();
+            Twoun();
         }
 
         public void GameOver(string text = "")

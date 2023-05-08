@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_TextRPG.NPC
+namespace Project_TextRPG
 {
     internal class Village_chief
     {

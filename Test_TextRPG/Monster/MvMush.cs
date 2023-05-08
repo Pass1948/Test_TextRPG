@@ -1,7 +1,7 @@
 ﻿using Project_TextRPG;
 using System.Text;
 
-namespace Test_TextRPG
+namespace Project_TextRPG
 {
 
     public class MvMush : Monster
@@ -52,11 +52,11 @@ namespace Test_TextRPG
         {
             Position prevPos = pos;
            
-            if (!Data_Don.map[pos.y, pos.x])
+            if (!Data.map[pos.y, pos.x])
             {
                 pos = prevPos;
             }
-            else if (Data_Don.IsObjectInPos(pos))
+            else if (Data.IsObjectInPos(pos))
             {
                 pos = prevPos;
             }

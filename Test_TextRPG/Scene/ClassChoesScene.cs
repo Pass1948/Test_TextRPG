@@ -68,7 +68,7 @@ namespace Project_TextRPG
         public void ChoseNovice(string text = "")
         {
             Console.Clear();
-            Data_Don.player = new Novice();
+            Data.player = new Novice();
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine();
@@ -96,7 +96,7 @@ namespace Project_TextRPG
         public void ChoseWarrior(string text = "")
         {
             Console.Clear();
-            Data_Don.player = new Warrior();
+            Data.player = new Warrior();
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine();
@@ -124,7 +124,7 @@ namespace Project_TextRPG
         public void ChoseArcher(string text = "")
         {
             Console.Clear();
-            Data_Don.player = new Archer();
+            Data.player = new Archer();
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine();

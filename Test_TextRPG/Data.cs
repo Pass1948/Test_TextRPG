@@ -7,13 +7,14 @@ using Test_TextRPG;
 
 namespace Project_TextRPG
 {
-    public static class Data_Don
+    public static class Data
     {
         public static bool[,] map;
         public static Player player;
         public static List<Item> inventory;
         public static List<Monster> monsters;
         public static List<Item> items;
+        public static List<Potal> potals;
 
         public static void Init()
         {
@@ -21,6 +22,7 @@ namespace Project_TextRPG
             inventory = new List<Item>();
             monsters = new List<Monster>();
             items = new List<Item>();
+            potals = new List<Potal>();
 
             inventory.Add(new Potion());
             inventory.Add(new LargePotion());
@@ -28,7 +30,7 @@ namespace Project_TextRPG
 
         public static bool IsObjectInPos(Position pos)
         {
-            return MonsterInPos(pos) == null && ItemInPos(pos) == null;
+            return MonsterInPos(pos) == null && ItemInPos(pos) == null && PotalInPos(pos) == null;
         }
 
         public static Monster MonsterInPos(Position pos)
@@ -52,6 +54,19 @@ namespace Project_TextRPG
                     item.pos.y == pos.y)
                 {
                     return item;
+                }
+            }
+            return null;
+        }
+
+        public static Potal PotalInPos(Position pos)
+        {
+            foreach (Potal potal in potals)
+            {
+                if (potal.pos.x == pos.x &&
+                    potal.pos.y == pos.y)
+                {
+                    return potal;
                 }
             }
             return null;
@@ -83,6 +98,7 @@ namespace Project_TextRPG
 
             monsters.Clear();
             items.Clear();
+            potals.Clear();
 
             Slime slime1 = new Slime();
             slime1.pos = new Position(3, 5);
@@ -105,8 +121,29 @@ namespace Project_TextRPG
             monsters.Add(mvMush);
 
             Item potion = new Potion();
-            potion.pos = new Position(12, 1);
+            potion.pos = new Position(9, 2);
             items.Add(potion);
+
+            Potal potal = new Potal();
+            potal.pos = new Position(12, 2);
+            potals.Add(potal);
+        }
+        public static void LoadTwon()
+        {
+            map = new bool[,]
+           {
+                { false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true, false,  true,  true,  true,  true,  true,  true,  true, false },
+                { false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+           };
+
+            player.pos = new Position(2, 2);
+
+            Potal potal = new Potal();
+            potal.pos = new Position(12, 2);
+            potals.Add(potal);
         }
     }
 }

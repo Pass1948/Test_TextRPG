@@ -41,12 +41,12 @@ namespace Project_TextRPG
             }
 
             // 이동한 자리가 벽일 경우
-            if (!Data_Don.map[pos.y, pos.x])
+            if (!Data.map[pos.y, pos.x])
             {
                 // 원위치 시키기
                 pos = prevPos;
             }
-            else if (Data_Don.IsObjectInPos(pos))
+            else if (Data.IsObjectInPos(pos))
             {
                 pos = prevPos;
             }
@@ -69,7 +69,7 @@ namespace Project_TextRPG
                 Console.WriteLine($"{name}(은/는) 쓰려졌다!");
                 Thread.Sleep(1000);
                 Console.WriteLine("몬스터는 포션을 떨어뜨렸다!");
-                Data_Don.player.GetItem(new Potion());
+                Data.player.GetItem(new Potion());
                 Thread.Sleep(1000);
             }
         }

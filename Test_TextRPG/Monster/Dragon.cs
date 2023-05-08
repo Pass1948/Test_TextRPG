@@ -38,7 +38,7 @@ namespace Project_TextRPG
             moveTurn = 0;
 
             List<Position> path;
-            if (!PathFinding(in Data_Don.map, pos, Data_Don.player.pos, out path))
+            if (!PathFinding(in Data.map, pos, Data.player.pos, out path))
                 return;
             
             if (path[1].x == pos.x)

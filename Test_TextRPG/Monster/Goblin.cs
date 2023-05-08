@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_TextRPG
+namespace Project_TextRPG
 {
     public class Goblin : Monster
     {
