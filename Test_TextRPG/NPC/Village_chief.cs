@@ -19,5 +19,10 @@ namespace Project_TextRPG
             sb.AppendLine("####################");
             image = sb.ToString();
         }
+
+        public override void Interaction()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

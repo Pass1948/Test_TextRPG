@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project_TextRPG
 {
-    public class NPC
+    public abstract class NPC
     {
         public string image;
         public char icon = '▼';
@@ -27,5 +27,6 @@ namespace Project_TextRPG
             image = sb.ToString();
         }
 
+        public abstract void Interaction();
     }
 }

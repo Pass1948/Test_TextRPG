@@ -144,11 +144,11 @@ namespace Project_TextRPG
 
             player.pos = new Position(2, 2);
 
-            NPC npc = new NPC();
+            Trader npc = new Trader();
             npc.pos = new Position(4, 1);
             npcs.Add(npc);
 
-            NPC npc2 = new NPC();
+            Village_chief npc2 = new Village_chief();
             npc2.pos = new Position(8, 1);
             npcs.Add(npc2);
 

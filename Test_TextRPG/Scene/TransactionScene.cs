@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test_TextRPG.Scene
 {
-    internal class TransactionScene
+    public class TransactionScene
     {
     }
 }
